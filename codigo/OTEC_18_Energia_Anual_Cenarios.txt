@@ -1,0 +1,53 @@
+$Keyboard US
+$UnitSystem SI C kPa kJ mass deg
+
+{OTEC NACALA - PARTE 18: ENERGIA ANUAL POR CENARIOS
+ Executar este ficheiro numa NOVA janela EES.
+ Calculo separado: nao alterar a versao validada das partes 1 a 17B.
+ Hipoteses de sensibilidade, sem probabilidades ou calibracao observacional.
+ Nao representa uma simulacao mensal nem uma serie anual de 2016 a 2025.
+ H equivalentes incluem conjuntamente paragens e reducao de potencia.
+ Nao multiplicar novamente por disponibilidade ou pelos 86.67% do recurso.
+ Base economica: potencia nominal liquida de 10 MW.
+ Variante: 10048 kW, valor arredondado do resultado de referencia do modo 3.
+ A variante nao demonstra entrega permanente acima da potencia nominal.
+ Potencias ja liquidas: nao subtrair novamente auxiliares ou reserva de 500 kW.
+ Fronteira: energia liquida da central; perdas posteriores de entrega nao incluidas.
+ Ano convencional: 8760 horas. Horas equivalentes referidas a cada potencia.
+ Cenarios: 1=4000; 2=6000; 3=8000 horas equivalentes por ano.
+ Resultados esperados base: 40000, 60000 e 80000 MWh/ano.
+ Verificacao aritmetica independente; execucao EES ainda por confirmar.}
+
+Pnom18 = 10000 [kW]
+Pref18 = 10048 [kW]
+Hano18 = 8760 [hr]
+
+Heq18[1] = 4000 [hr]
+Heq18[2] = 6000 [hr]
+Heq18[3] = 8000 [hr]
+
+Duplicate i18=1,3
+  FC18[i18] = Heq18[i18]/Hano18
+  Enom18[i18] = Pnom18*Heq18[i18]*Convert(kW-hr,MW-hr)
+  Eref18[i18] = Pref18*Heq18[i18]*Convert(kW-hr,MW-hr)
+  Ganho18[i18] = Eref18[i18]-Enom18[i18]
+End
+
+$VarInfo Pnom18 Units='kW'
+$VarInfo Pref18 Units='kW'
+$VarInfo Hano18 Units='hr'
+$VarInfo Heq18[1] Units='hr'
+$VarInfo Heq18[2] Units='hr'
+$VarInfo Heq18[3] Units='hr'
+$VarInfo FC18[1] Units='-'
+$VarInfo FC18[2] Units='-'
+$VarInfo FC18[3] Units='-'
+$VarInfo Enom18[1] Units='MW-hr'
+$VarInfo Enom18[2] Units='MW-hr'
+$VarInfo Enom18[3] Units='MW-hr'
+$VarInfo Eref18[1] Units='MW-hr'
+$VarInfo Eref18[2] Units='MW-hr'
+$VarInfo Eref18[3] Units='MW-hr'
+$VarInfo Ganho18[1] Units='MW-hr'
+$VarInfo Ganho18[2] Units='MW-hr'
+$VarInfo Ganho18[3] Units='MW-hr'
