@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Código EES da central OTEC de Nacala, suplemento digital do Apêndice C.">
+  <title>Apêndice C — Código EES da central OTEC de Nacala</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #162638; background: #f4f7fa; font: 1rem/1.55 system-ui, sans-serif; }
+    main { width: min(48rem, calc(100% - 2rem)); margin: 3rem auto 4rem; }
+    header { border-top: .3rem solid #176760; padding-top: 1.4rem; }
+    h1 { font-size: clamp(2rem, 5vw, 3.1rem); line-height: 1.12; margin: .3rem 0 .75rem; }
+    h2 { margin-top: 2rem; }
+    h3, p { margin: 0 0 .7rem; }
+    .institution, .byline { color: #42566d; }
+    article { padding: 1rem 1.15rem; border: 1px solid #cbd6e0; border-radius: .45rem; background: white; margin: .8rem 0; }
+    a { display: inline-block; padding: .35rem .45rem; margin-right: .75rem; color: #075b54; font-weight: 650; text-underline-offset: .16rem; }
+    a:focus-visible { outline: 3px solid #176760; outline-offset: 2px; }
+    code { overflow-wrap: anywhere; font-size: .95em; }
+    li { margin-bottom: .6rem; }
+    @media (max-width: 35rem) { main { margin-top: 1.5rem; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="institution">Universidade Eduardo Mondlane · Engenharia Mecânica</p>
+      <h1>Apêndice C<br>Código EES da central OTEC de Nacala</h1>
+      <p>Suplemento digital do trabalho de licenciatura sobre a viabilidade de implantação de uma central OTEC no Canal de Moçambique.</p>
+      <p class="byline">Artiel Marcelina Martins Rungo · 2026</p>
+    </header>
+    <section aria-labelledby="ficheiros">
+      <h2 id="ficheiros">Ficheiros da simulação</h2>
+      <article>
+        <h3>Modelo principal</h3>
+        <p>Partes 1 a 17B. Balanços do ciclo de amónia, pré-dimensionamento térmico e hidráulico, análise exergética e comparação dos modos de operação.</p>
+        <a href="codigo/OTEC_17_Comparacao.txt">Ver código</a>
+        <a href="codigo/OTEC_17_Comparacao.txt" download>Descarregar TXT</a>
+      </article>
+      <article>
+        <h3>Produção anual</h3>
+        <p>Parte 18. Estimativa da produção para 4 000, 6 000 e 8 000 horas equivalentes à potência líquida nominal de 10 MW.</p>
+        <a href="codigo/OTEC_18_Energia_Anual_Cenarios.txt">Ver código</a>
+        <a href="codigo/OTEC_18_Energia_Anual_Cenarios.txt" download>Descarregar TXT</a>
+      </article>
+    </section>
+    <section aria-labelledby="execucao">
+      <h2 id="execucao">Execução no EES</h2>
+      <ol>
+        <li>Copiar cada ficheiro integralmente para um documento separado no Engineering Equation Solver (EES) e executar <strong>Solve</strong>.</li>
+        <li>No modelo principal, consultar <code>P_liq14</code> para a potência líquida após reserva. Na Parte 17B, <code>Res_Escolha</code> identifica o modo seleccionado e <code>Res_Pliq3</code> indica a potência líquida do modo 3.</li>
+        <li>Na Parte 18, consultar a janela <strong>Arrays Table</strong>. Os valores de <code>Enom18[1..3]</code> correspondem a 40 000, 60 000 e 80 000 MWh/ano.</li>
+      </ol>
+    </section>
+  </main>
+</body>
+</html>
